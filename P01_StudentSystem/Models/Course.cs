@@ -10,6 +10,6 @@
         public decimal Price { get; set; }
         public ICollection<Resource> Resources { get; } = new List<Resource>();
         public ICollection<Homework> HomeworkSubmissions { get; } = new List<Homework>();
-        public ICollection<Student> StudentsEnrolled { get; set; } = new List<Student>();
+        public ICollection<StudentCourse> StudentsEnrolled { get; set; } = new List<StudentCourse>();
     }
 }

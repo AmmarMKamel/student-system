@@ -16,7 +16,7 @@ namespace P01_StudentSystem.Data
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=StudentSystem;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=StudentSystem;Trusted_Connection=True;Trust Server Certificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,9 +29,8 @@ namespace P01_StudentSystem.Data
             new HomeworkEntityTypeConfiguration().Configure(modelBuilder.Entity<Homework>());
 
             // Relationships
-            modelBuilder.Entity<Student>()
-                .HasMany(e => e.CourseEnrollments)
-                .WithMany(e => e.StudentsEnrolled);
+            modelBuilder.Entity<StudentCourse>()
+                .HasKey(e => new { e.CourseId, e.StudentId });
 
             modelBuilder.Entity<Student>()
                 .HasMany(e => e.HomeworkSubmissions)

@@ -8,6 +8,6 @@
         public DateTime RegisteredOn { get; set; }
         public DateTime? Birthday { get; set; }
         public ICollection<Homework> HomeworkSubmissions { get; } = new List<Homework>();
-        public ICollection<Course> CourseEnrollments { get; } = new List<Course>();
+        public ICollection<StudentCourse> CourseEnrollments { get; } = new List<StudentCourse>();
     }
 }
