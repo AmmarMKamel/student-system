@@ -9,6 +9,7 @@ namespace P01_StudentSystem.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Resource> Resources { get; set; }
+        public DbSet<Homework> Homeworks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +25,7 @@ namespace P01_StudentSystem.Data
             new StudentEntityTypeConfiguration().Configure(modelBuilder.Entity<Student>());
             new CourseEntityTypeConfiguration().Configure(modelBuilder.Entity<Course>());
             new ResourceEntityTypeConfiguration().Configure(modelBuilder.Entity<Resource>());
+            new HomeworkEntityTypeConfiguration().Configure(modelBuilder.Entity<Homework>());
         }
     }
 }

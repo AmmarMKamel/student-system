@@ -8,5 +8,7 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public decimal Price { get; set; }
+        public ICollection<Resource> Resources { get; } = new List<Resource>();
+        public ICollection<Homework> Homeworks { get; } = new List<Homework>();
     }
 }
