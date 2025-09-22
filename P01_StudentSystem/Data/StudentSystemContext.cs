@@ -27,6 +27,19 @@ namespace P01_StudentSystem.Data
             new CourseEntityTypeConfiguration().Configure(modelBuilder.Entity<Course>());
             new ResourceEntityTypeConfiguration().Configure(modelBuilder.Entity<Resource>());
             new HomeworkEntityTypeConfiguration().Configure(modelBuilder.Entity<Homework>());
+
+            // Relationships
+            modelBuilder.Entity<Student>()
+                .HasMany(e => e.CourseEnrollments)
+                .WithMany(e => e.StudentsEnrolled);
+
+            modelBuilder.Entity<Student>()
+                .HasMany(e => e.HomeworkSubmissions)
+                .WithOne(e => e.Student);
+
+            modelBuilder.Entity<Course>()
+                .HasMany(e => e.HomeworkSubmissions)
+                .WithOne(e => e.Course);
         }
     }
 }

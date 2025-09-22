@@ -7,6 +7,7 @@
         public string? PhoneNumber { get; set; }
         public DateTime RegisteredOn { get; set; }
         public DateTime? Birthday { get; set; }
-        public ICollection<Homework> Homeworks { get; set; } = new List<Homework>();
+        public ICollection<Homework> HomeworkSubmissions { get; } = new List<Homework>();
+        public ICollection<Course> CourseEnrollments { get; } = new List<Course>();
     }
 }
