@@ -10,6 +10,7 @@ namespace P01_StudentSystem.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
