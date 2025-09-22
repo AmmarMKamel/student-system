@@ -7,6 +7,7 @@ namespace P01_StudentSystem.Data
     internal class StudentSystemContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,6 +21,7 @@ namespace P01_StudentSystem.Data
             base.OnModelCreating(modelBuilder);
 
             new StudentEntityTypeConfiguration().Configure(modelBuilder.Entity<Student>());
+            new CourseEntityTypeConfiguration().Configure(modelBuilder.Entity<Course>());
         }
     }
 }
